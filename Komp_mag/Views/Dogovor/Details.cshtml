@@ -1,0 +1,83 @@
+﻿@model Agent.Models.Dogovor
+
+@{
+    ViewBag.Title = "Детальный просмотр";
+}
+
+<h2>Детальный просмотр</h2>
+
+<div>
+    <h4>Запись</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDGroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupDog.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDKl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+        @if (User.IsInRole("Agent") || User.IsInRole("Admin"))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.IDAg)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IDAg)
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarif.Object)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Described)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Described)
+        </dd>
+    </dl>
+</div>
+<p>
+     @if (User.IsInRole("Agent") || User.IsInRole("Admin"))
+     {
+        if (Model.IDGroup == 2)
+                {
+            <input type="button" class="btn btn-default" value="Подтвердить" onclick="location.href = '@Url.Action("Confirm", new {id = Model.Id})'" />
+            <input type="button" class="btn btn-default" value="Отклонить" onclick="location.href = '@Url.Action("Reject", new {id = Model.Id})'" />
+        }
+     }
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Вернуться на главную", "MyObject")
+</p>

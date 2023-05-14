@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Agent.Models.Dogovor>
+@{
+    ViewBag.Title = "Главная";
+}
+
+<ul id="groups">
+    @foreach (var item in (IEnumerable<Agent.Models.GroupDog>)ViewData["Groups"])
+    {
+        <li>
+            <div>
+                @Html.ActionLink(item.Name, "Index", new { id = item.Id })
+            </div>
+        </li>
+    }
+</ul>
+<p>
+    @Html.ActionLink("Начальная", "../Home/Index")
+    <br>
+    @if (User.IsInRole("Prodavez") || User.IsInRole("Admin"))
+    {
+       
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDGroup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDKl)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.IDTr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+
+
+        <th> Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupDog.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.IDTr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+             
+                <input type="button" class="btn btn-default" value="Просмотреть" onclick="location.href = '@Url.Action("Details", new {id = item.Id})'" />
+                @if (item.IDGroup == 2)
+                {
+                <input type="button" class="btn btn-default" value="Подтвердить" onclick="location.href = '@Url.Action("Confirm", new {id = item.Id})'" />
+                <input type="button" class="btn btn-default" value="Отклонить" onclick="location.href = '@Url.Action("Reject", new {id = item.Id})'" />
+                }
+            
+            </td>
+        </tr>
+    }
+</table>

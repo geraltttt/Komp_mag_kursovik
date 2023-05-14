@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Компьютерный магазин</h1>
+    @if (User.IsInRole("Prodavez") || User.IsInRole("Admin") || User.IsInRole("Pokupatel"))
+    {
+        <p class="lead">Создание заказа </p>
+        <p><a href="../Dogovor/Create" class="btn btn-primary btn-lg">Создать заказ &raquo;</a></p>
+        <p class="lead">Посмотреть заказы </p>
+        <p><a href="../Dogovor/MyObject" class="btn btn-primary btn-lg">Просмотр &raquo;</a></p>
+        <p class="lead">Гарантийный случай </p>
+        <p><a href="../Str/MyObject" class="btn btn-primary btn-lg">Просмотр &raquo;</a></p>
+        <p class="lead">Оформить гарантийный случай </p>
+        <p><a href="../Str/Create" class="btn btn-primary btn-lg">Создать &raquo;</a></p>
+    }
+</div>
+
+<div class="row">
+    @if (User.IsInRole("Prodavez") || User.IsInRole("Admin"))
+    {
+        <div class="col-md-4">
+            <h2>Заказы</h2>
+            <p><a class="btn btn-default" href="../Dogovor/Index">Просмотр &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2> Все гарантийные случаи</h2>
+            <p><a class="btn btn-default" href="../Str/Index">Просмотр &raquo;</a></p>
+        </div>
+    }
+
+    <div class="col-md-4">
+        <h2>Услуги</h2>
+        <p><a class="btn btn-default" href="../Tarif/Index">Просмотр &raquo;</a></p>
+    </div>
+</div>

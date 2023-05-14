@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Agent.Models.StrSl>
+
+@{
+    ViewBag.Title = "Главная";
+}
+<ul id="groups">
+    @foreach (var item in (IEnumerable<Agent.Models.GroupDog>)ViewData["Groups"])
+    {
+        <li>
+            <div>
+                @Html.ActionLink(item.Name, "Index", new { id = item.Id })
+            </div>
+        </li>
+    }
+</ul>
+
+<p>
+    @Html.ActionLink("Начальная", "../Dogovor/Start")
+    <br>
+    @Html.ActionLink("Добавить", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDGroup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDKl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDDogv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Described)
+        </th>
+        <th> Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.GroupDog.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDKl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDDogv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Described)
+            </td>
+            <td>
+                <input type="button" class="btn btn-default" value="Просмотреть" onclick="location.href = '@Url.Action("Details", new {id = item.Id})'" />
+                @if (item.IDGroup == 2)
+                {
+                    <input type="button" class="btn btn-default" value="Подтвердить" onclick="location.href = '@Url.Action("Confirm", new {id = item.Id})'" />
+                    <input type="button" class="btn btn-default" value="Отклонить" onclick="location.href = '@Url.Action("Reject", new {id = item.Id})'" />
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+

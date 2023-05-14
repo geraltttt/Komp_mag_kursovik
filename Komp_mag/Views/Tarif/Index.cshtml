@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Agent.Models.Tarif>
+@{
+    ViewBag.Title = "Главная";
+}
+<p>
+    @Html.ActionLink("Начальная", "../Dogovor/Start")
+    <br>
+    @Html.ActionLink("Добавить", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Object)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conditions)
+        </th>
+        <th> Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Object)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conditions)
+            </td>
+            <td>
+           @if (User.IsInRole("Admin"))
+           {
+            <input type="button" class="btn btn-default" value="Редактировать" onclick="location.href = '@Url.Action("Edit", new {id = item.Id})'" />
+            <input type="button" class="btn btn-default" value="Удалить" onclick="location.href = '@Url.Action("Delete", new {id = item.Id})'" />
+           }
+            </td>
+        </tr>
+    }
+</table>

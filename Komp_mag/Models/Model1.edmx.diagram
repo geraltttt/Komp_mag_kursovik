@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0ede4490730c4a9b8f65841aa33ec3ce" Name="Diagram1" ZoomLevel="96">
+        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="18.375" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetRoles" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUsers" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Dogovor" Width="1.5" PointX="8.125" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GroupDog" Width="1.5" PointX="10.375" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.StrSl" Width="1.5" PointX="8.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Tarif" Width="1.5" PointX="10.25" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Dogovor__IDKl__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__StrSl__IDAg__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__StrSl__IDKl__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Dogovor__IDTr__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__StrSl__IDDogv__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.IDGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__StrSl__IDGroup__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
